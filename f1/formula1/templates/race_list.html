@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2023 Bahrain Grand Prix Results</title>
+    <link rel="stylesheet" href = "/static/css/results.css">
+</head>
+<body>
+    <header>
+        <h1>2023 Bahrain Grand Prix Results</h1>
+        <!-- Tabs for Practice, Qualifying, Race -->
+    </header>
+    <section>
+        <table>
+            <thead>
+                <tr>
+                    <th>Position</th>
+                    <th>Driver</th>
+                    <!-- Other headers -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for result in results %}
+                <tr>
+                    <td>{{ result.position }}</td>
+                    <td>{{ result.driver.name }}</td>
+                    <!-- Other data cells -->
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+</body>
+</html>
