@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ driver.name }}</h1>
+<!-- Вставьте информацию о гонщике сюда -->
+<p>Команда: {{ driver.team.team_name }}</p>
+<p>Гранд-слэмов: {{ driver.grand_slam }}</p>
+<p>Самых быстрых кругов: {{ driver.fastest_lap_count }}</p>
+<p>Гонок: {{ driver.races_count }}</p>
+<p>Побед: {{ driver.wins_count }}</p>
+{% endblock %}

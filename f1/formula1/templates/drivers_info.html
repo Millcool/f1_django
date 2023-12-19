@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Информация о гонщиках</h1>
+<ul>
+    {% for driver in drivers %}
+    <li>
+        <a href="{% url 'driver_info' driver_id=driver.id %}">
+            {{ driver.name }} ({{ driver.abbreviation }})
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ team.team_name }}</h1>
+<p>Побед: {{ team.team_wins }}</p>
+<p>Гонок: {{ team.team_races }}</p>
+<p>Описание: {{ team.description }}</p>
+{% endblock %}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Django Project{% endblock %}</title>
+    <link rel="stylesheet" href = "/static/css/base.css">
+</head>
+<body>
+    <header>
+        <h1>Formula 1</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'login' %}">Вход</a></li>
+                <li><a href="{% url 'signup' %}">Регистрация</a></li>
+                <li><a href="{% url 'grand_prix_results' %}">Результаты гонок</a></li>
+                <li><a href="{% url 'drivers_info' %}">Информация о гонщиках</a></li>
+                <li><a href="{% url 'teams_info' %}">Информация о командах</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Content block where child templates will insert their content -->
+        {% block content %}
+        {% endblock content %}
+    </main>
+
+    <footer>
+        <p>&copy; {{ 2023 }} Formula1 Mironov Ilya</p>
+    </footer>
+
+    <script>
+        // Add any JavaScript here
+    </script>
+</body>
+</html>
