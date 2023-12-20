@@ -1,15 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<link rel="stylesheet" href = "/static/css/race_results.css">
-<h1>Список гонок</h1>
-<ul>
-    {% for race in races %}
-    <li>
-        <a href="{% url 'race_results' race_id=race.pk %}">
-            {{ race.track.track_name }} - {{ race.datetime_of_race|date:"d M Y" }}
-        </a>
-    </li>
-    {% endfor %}
-</ul>
+<link rel="stylesheet" href="/static/css/race_results.css">
+<div class="content-block">
+    <h1>Список гонок</h1>
+    <ul>
+        {% for race in races %}
+        <li>
+            <a href="{% url 'race_results' race_id=race.pk %}">
+                {{ race.track.track_name }} - {{ race.datetime_of_race|date:"d M Y" }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}

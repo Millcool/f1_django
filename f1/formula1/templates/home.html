@@ -3,12 +3,79 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
+<link rel="stylesheet" href="/static/css/home.css">
 
-
-<div>
-    <h1>Welcome to Our Racing Site</h1>
-    <p>This is the home page of our racing website. Here, you can find all the latest updates and information about races, drivers, and teams.</p>
+<div class="hero-banner">
+    <h1>Добро пожаловать на мой сайт о формуле 1 !</h1>
+    <p>Это домашняя страница сайта. На сайте вы можете найти информацию о гонщиках, командах и результатах гонок </p>
 </div>
+
+<div class="latest-news">
+    <h2>Последние Новости</h2>
+    <ul>
+        <li>
+            <a href="#">"Драматичный Финиш на Гран-при Италии!"</a>
+            <p>Читайте о напряженной борьбе в последних кругах...</p>
+        </li>
+        <li>
+            <a href="#">"Новые Технологии в Формуле-1: Изменяющие Игру"</a>
+            <p>Узнайте, как новые достижения формируют будущее гонок...</p>
+        </li>
+        <li>
+            <a href="#">"В Центре Внимания: Интервью с Чемпионом"</a>
+            <p>Получите взгляд изнутри на жизнь нынешнего чемпиона Формулы-1...</p>
+        </li>
+    </ul>
+</div>
+
+<div class="upcoming-races">
+    <h2>Предстоящие Гонки</h2>
+    <ul>
+        <li>
+            <strong>Гран-при Монако</strong>
+            <span> - 28 мая 2023</span>
+        </li>
+        <li>
+            <strong>Гран-при Канады</strong>
+            <span> - 11 июня 2023</span>
+        </li>
+        <li>
+            <strong>Гран-при Великобритании</strong>
+            <span> - 16 июля 2023</span>
+        </li>
+    </ul>
+</div>
+
+<div class="featured-drivers">
+    <h2>Известные Гонщики</h2>
+    <ul>
+        <li>
+            <img src="static/images/drivers/max.jpg" alt="Гонщик 1">
+            <strong>Макс Верстаппен</strong>
+            <p>10 побед подряд !</p>
+        </li>
+        <li>
+            <img src="static/images/drivers/lewis.jpg" alt="Гонщик 2">
+            <strong>Льюис Хемильтон</strong>
+            <p>Разочарование года</p>
+        </li>
+    </ul>
+</div>
+
+<div class="featured-teams">
+    <h2>Известные Команды</h2>
+    <ul>
+        <li>
+
+            <strong>Aston martin</strong>
+            <p>Невероятные приключения Алонсо</p>
+        </li>
+
+
+    </ul>
+</div>
+
+
 {% endblock %}
 
 

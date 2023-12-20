@@ -1,0 +1,51 @@
+/* team.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin: 20px 0;
+}
+
+ul.teams-list {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+    margin: auto;
+}
+
+ul.teams-list li {
+    background-color: #fff;
+    margin-bottom: 5px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+ul.teams-list li:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transform: translateY(-2px);
+}
+
+ul.teams-list li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+}
+
+/* Responsive table styles */
+@media (max-width: 768px) {
+    ul.teams-list li {
+        padding: 10px;
+    }
+}

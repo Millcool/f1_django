@@ -1,0 +1,45 @@
+/* home.css */
+
+
+.featured-drivers img, .featured-teams img {
+    width: 100px;  /* Set a fixed width */
+    height: 100px; /* Set a fixed height */
+    object-fit: cover; /* This will ensure the image covers the area without stretching */
+    border-radius: 50%; /* Optional: for circular images */
+    margin-bottom: 10px; /* Space below the image */
+}
+.hero-banner img {
+    width: 100px; /* Full width of the container */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 300px; /* Maximum height */
+}
+
+/* Additional styling for text and layout */
+.featured-drivers li, .featured-teams li {
+    list-style-type: none; /* Removes bullet points */
+    text-align: center; /* Center align the content */
+    margin-bottom: 20px; /* Space between items */
+}
+
+.featured-drivers strong, .featured-teams strong {
+    display: block; /* Makes the text appear below the image */
+    margin-top: 5px; /* Space above the text */
+}
+
+/* Ensure the lists do not have default padding */
+.featured-drivers ul, .featured-teams ul {
+    padding-left: 0;
+}
+.latest-news, .upcoming-races, .featured-drivers, .featured-teams {
+    padding: 20px;
+    margin-top: 20px;
+    background: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.latest-news h2, .upcoming-races h2, .featured-drivers h2, .featured-teams h2 {
+    color: #333;
+}
+
+/* Add further styles for individual sections */

@@ -1,14 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Информация о командах</h1>
-<ul>
-    {% for team in teams %}
-    <li>
-        <a href="{% url 'team_info' team_id=team.id %}">
-            {{ team.team_name }}
-        </a>
-    </li>
-    {% endfor %}
-</ul>
-{% endblock %}
+<link rel="stylesheet" href="/static/css/race_results.css">
+<div class="content-block">
+    <h1>Информация о командах</h1>
+    <ul class="teams-list">
+        {% for team in teams %}
+        <li>
+            <a href="{% url 'team_info' team_id=team.id %}">
+                {{ team.team_name }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+    {% endblock %}

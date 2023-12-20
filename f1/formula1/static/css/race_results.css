@@ -1,91 +1,40 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #ffffff;
+/* race_results.css */
+
+.content-block {
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 800px;
 }
 
-.results-container {
-    margin: 20px;
-}
-
-h1 {
-    color: #333;
+.content-block h1 {
     text-align: center;
+    color: #333;
     margin-bottom: 20px;
 }
 
-.race-results h2 {
-    color: #333;
+.content-block ul {
+    list-style: none;
+    padding: 0;
+}
+
+.content-block ul li {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
     margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-}
-
-thead {
-    background-color: #000000;
-    color: #ffffff;
-}
-
-th, td {
-    padding: 8px;
-    border: 1px solid #dddddd;
-    text-align: left;
-}
-
-th {
-    font-weight: normal;
-}
-
-tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-tbody tr:hover {
-    background-color: #fdd;
-}
-
-tbody tr.dnf {
-    background-color: #fbb;
-    color: #333;
-}
-
-tbody tr.fastest-lap {
+.content-block ul li a {
+    text-decoration: none;
+    color: #007bff; /* Adjust the color as per your design */
     font-weight: bold;
+    display: block; /* Makes the entire area clickable */
+    padding: 5px; /* Extra padding for better appearance */
 }
 
-td {
-    color: #333;
-}
-
-tfoot {
-    background-color: #000000;
-    color: #ffffff;
-}
-
-tfoot td {
-    font-weight: bold;
-}
-
-/* Specific styles for certain columns */
-td:nth-of-type(1) { /* Position */
-    background-color: #555;
-    color: #fff;
-}
-
-td:nth-of-type(8), /* Race Time */
-td:nth-of-type(9) { /* Points */
-    font-weight: bold;
-}
-
-.fastest-lap td {
-    color: #c00; /* Red color for the fastest lap */
-}
-
-.dnf td {
-    color: #999; /* Grey out the DNF rows */
+.content-block ul li a:hover {
+    background-color: #e2e2e2;
 }

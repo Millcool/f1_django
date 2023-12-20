@@ -2,6 +2,8 @@ from .models import Result, Race, Driver, Team
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import SignUpForm
 from django.contrib.auth import login, authenticate
+import time
+import datetime
 
 def grand_prix_results(request):
     races = Race.objects.all()

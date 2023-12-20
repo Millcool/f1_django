@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<link rel="stylesheet" href = "/static/css/race_results.css">
+<div class="content-block">
 <h1>Информация о гонщиках</h1>
 <ul>
     {% for driver in drivers %}
@@ -11,4 +13,5 @@
     </li>
     {% endfor %}
 </ul>
-{% endblock %}
+</div>
+    {% endblock %}
