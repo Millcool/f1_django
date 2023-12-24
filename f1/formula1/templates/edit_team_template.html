@@ -1,0 +1,8 @@
+<form action="{% url 'edit_team' team.id %}" method="post">
+    {% csrf_token %}
+    <label for="team_name">Название команды:</label>
+    <input type="text" id="team_name" name="team_name" value="{{ team.team_name }}" required>
+    <br>
+    <!-- Other fields similarly pre-filled with existing data -->
+    <button type="submit">Сохранить изменения</button>
+</form>
