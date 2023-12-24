@@ -4,6 +4,44 @@
 <link rel="stylesheet" href = "/static/css/race_results.css">
 <div class="content-block">
 <h1>Информация о гонщиках</h1>
+<form action="{% url 'add_driver' %}" method="post">
+    {% csrf_token %}
+    <h2>Добавить нового гонщика</h2>
+
+    <label for="name">Имя:</label>
+    <input type="text" id="name" name="name" required>
+    <br>
+
+    <label for="abbreviation">Аббревиатура:</label>
+    <input type="text" id="abbreviation" name="abbreviation" required>
+    <br>
+
+    <label for="team">Команда:</label>
+    <select id="team" name="team" required>
+        {% for team in teams %}
+        <option value="{{ team.id }}">{{ team.name }}</option>
+        {% endfor %}
+    </select>
+    <br>
+
+    <label for="grand_slam">Гранд-слам:</label>
+    <input type="number" id="grand_slam" name="grand_slam" required>
+    <br>
+
+    <label for="fastest_lap_count">Количество самых быстрых кругов:</label>
+    <input type="number" id="fastest_lap_count" name="fastest_lap_count" required>
+    <br>
+
+    <label for="races_count">Количество гонок:</label>
+    <input type="number" id="races_count" name="races_count" required>
+    <br>
+
+    <label for="wins_count">Количество побед:</label>
+    <input type="number" id="wins_count" name="wins_count" required>
+    <br>
+
+    <button type="submit">Добавить гонщика</button>
+</form>
 <ul>
     {% for driver in drivers %}
     <li>
