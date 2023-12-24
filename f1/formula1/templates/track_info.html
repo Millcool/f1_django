@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<link rel="stylesheet" href = "/static/css/race_results.css">
+
+<h1>{{track.name }}</h1>
+<p>Страна: {{ track.country }}</p>
+<p>Город: {{ track.city }}</p>
+<p>Длина: {{ track.length }}</p>
+<p>Описание: {{ track.description }}</p>
+<p>Лучшее время: {{ track.track_best_time }}</p>
+{% endblock %}

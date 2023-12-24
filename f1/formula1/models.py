@@ -2,36 +2,36 @@ from django.db import models
 
 
 class Team(models.Model):
-    team_name = models.CharField(max_length=200)
-    team_wins = models.IntegerField()
-    team_races = models.IntegerField()
+    name = models.CharField(max_length=200)
+    wins = models.IntegerField()
+    races = models.IntegerField()
     description = models.TextField()
 
     def __str__(self):
-        return self.team_name
+        return self.name
 
 
 class Track(models.Model):
-    track_name = models.CharField(max_length=200)
-    track_country = models.CharField(max_length=200)
-    track_city = models.CharField(max_length=200)
+    name = models.CharField(max_length=200)
+    country = models.CharField(max_length=200)
+    city = models.CharField(max_length=200)
     length = models.FloatField()
     description = models.TextField()
     track_best_time = models.TimeField()
 
     def __str__(self):
-        return self.track_name
+        return self.name
 
 
 class Race(models.Model):
-    race_id = models.AutoField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     track = models.ForeignKey(Track, on_delete=models.CASCADE)
     is_sprint = models.BooleanField()
     datetime_of_race = models.DateTimeField()
     datetime_of_quali = models.DateTimeField()
 
     def __str__(self):
-        return f"{self.race_id} - {self.track}"
+        return f"{self.id} - {self.track}"
 
 
 class Driver(models.Model):
@@ -49,7 +49,7 @@ class Driver(models.Model):
 
 
 class Result(models.Model):
-    result_id = models.AutoField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     driver = models.ForeignKey(Driver, on_delete=models.CASCADE)
     race = models.ForeignKey(Race, on_delete=models.CASCADE)
     position = models.IntegerField()
@@ -64,4 +64,4 @@ class Result(models.Model):
     dnf_sprint = models.BooleanField()
 
     def __str__(self):
-        return f"{self.result_id} - {self.driver}"
+        return f"{self.id} - {self.driver}"

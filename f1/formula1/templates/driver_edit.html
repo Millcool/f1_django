@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<link rel="stylesheet" href = "/static/css/race_results.css">
+<h2>Редактировать информацию о гонщике</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Сохранить изменения</button>
+</form>
+{% endblock %}

@@ -118,9 +118,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/formula1/static/'
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',  # If using Python 3.9 or later
+    BASE_DIR / 'formula1/static',  # If using Python 3.9 or later
 ]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 # Default primary key field type

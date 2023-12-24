@@ -4,12 +4,47 @@
 <link rel="stylesheet" href="/static/css/race_results.css">
 <div class="content-block">
     <h1>Список гонок</h1>
+    <!-- Форма для добавления гонки -->
+    <form action="{% url 'add_race' %}" method="post">
+        {% csrf_token %}
+        <h2>Добавить новую гонку</h2>
+
+        <label for="track">Трек:</label>
+        <select id="track" name="track">
+            {% for track in tracks %}
+            <option value="{{ track.id }}">{{ track.name }}</option>
+            {% endfor %}
+        </select>
+        <br>
+
+        <label for="datetime_of_race">Дата и время гонки:</label>
+        <input type="datetime-local" id="datetime_of_race" name="datetime_of_race" required>
+        <br>
+
+        <label for="datetime_of_quali">Дата и время квалификации:</label>
+        <input type="datetime-local" id="datetime_of_quali" name="datetime_of_quali" required>
+        <br>
+
+        <label for="is_sprint">Спринт:</label>
+        <input type="checkbox" id="is_sprint" name="is_sprint">
+        <br>
+
+        <button type="submit">Добавить гонку</button>
+    </form>
     <ul>
         {% for race in races %}
         <li>
             <a href="{% url 'race_results' race_id=race.pk %}">
-                {{ race.track.track_name }} - {{ race.datetime_of_race|date:"d M Y" }}
+                {{ race.track.name }} - {{ race.datetime_of_race|date:"d M Y" }}
             </a>
+            <!-- Форма для удаления гонки -->
+            <form action="{% url 'delete_race' race.id %}" method="post" style="display: inline;">
+                {% csrf_token %}
+                <input type="hidden" name="race_id" value="{{ driver.id }}">
+                <button type="submit" onclick="return confirm('Вы уверены, что хотите удалить эту гонку?');">Удалить гонку</button>
+            </form>
+        <!-- Форма для изменения гонки -->
+            <a href="{% url 'edit_race' race.id %}">Редактировать</a>
         </li>
         {% endfor %}
     </ul>

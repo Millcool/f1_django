@@ -2,6 +2,73 @@
 
 {% block content %}
 <link rel="stylesheet" href = "/static/css/race_results.css">
+<!-- Информация о гонке -->
+<div class="race-info">
+    <h1>Информация о гонке</h1>
+    <p><strong>Трек:</strong> {{ race.track.name }}</p>
+    <p><strong>Страна:</strong> {{ race.track.country }}</p>
+    <p><strong>Город:</strong> {{ race.track.city }}</p>
+    <p><strong>Дата гонки:</strong> {{ race.datetime_of_race|date:"d M Y H:i" }}</p>
+    <p><strong>Спринт:</strong> {{ race.is_sprint|yesno:"Да,Нет" }}</p>
+    <p><strong>Лучшее время на треке:</strong> {{ race.track.track_best_time|time:"H:i:s" }}</p>
+</div>
+<!-- Форма для добавления результата гонки -->
+<form action="{% url 'add_result' %}" method="post">
+    {% csrf_token %}
+    <h2>Добавить новый результат</h2>
+
+    <label for="driver">Гонщик:</label>
+    <select id="driver" name="driver">
+        {% for driver in drivers %}
+        <option value="{{ driver.id }}">{{ driver.name }}</option>
+        {% endfor %}
+    </select>
+    <br>
+
+    <input type="hidden" name="race" value="{{ race.id }}">
+
+    <label for="position">Позиция:</label>
+    <input type="number" id="position" name="position" required>
+    <br>
+
+    <label for="position_quali">Позиция в квалификации:</label>
+    <input type="number" id="position_quali" name="position_quali" required>
+    <br>
+
+    <label for="position_sprint">Позиция в спринте:</label>
+    <input type="number" id="position_sprint" name="position_sprint">
+    <br>
+
+    <label for="race_time">Время гонки:</label>
+    <input type="time" step="1" id="race_time" name="race_time">
+    <br>
+
+    <label for="quali_time">Время квалификации:</label>
+    <input type="time" step="1" id="quali_time" name="quali_time">
+    <br>
+
+    <label for="points_race">Очки за гонку:</label>
+    <input type="number" step="0.01" id="points_race" name="points_race">
+    <br>
+
+    <label for="points_sprint">Очки за спринт:</label>
+    <input type="number" step="0.01" id="points_sprint" name="points_sprint">
+    <br>
+
+    <label for="fastest_lap">Быстрейший круг:</label>
+    <input type="checkbox" id="fastest_lap" name="fastest_lap">
+    <br>
+
+    <label for="dnf">Не финишировал:</label>
+    <input type="checkbox" id="dnf" name="dnf">
+    <br>
+
+    <label for="dnf_sprint">Не финишировал в спринте:</label>
+    <input type="checkbox" id="dnf_sprint" name="dnf_sprint">
+    <br>
+
+    <button type="submit">Добавить результат</button>
+</form>
 <h2>Результаты: {{ race.track.track_name }}</h2>
 <table>
     <thead>
@@ -9,8 +76,8 @@
             <th>Position</th>
             <th>Driver</th>
             <th>Team</th>
-            <th>Qualification Position</th>
-            <th>Sprint Position</th>
+            <th>Qualification</th>
+            <th>Sprint</th>
             <th>Fastest Lap</th>
             <th>Race Time</th>
             <th>Points</th>
@@ -21,12 +88,22 @@
         <tr class="{% if result.dnf %}dnf{% elif result.fastest_lap %}fastest-lap{% endif %}">
             <td>{{ result.position }}</td>
             <td>{{ result.driver.name }}</td>
-            <td>{{ result.driver.team.team_name }}</td>
+            <td>{{ result.driver.team.name }}</td>
             <td>{{ result.position_quali }}</td>
             <td>{{ result.position_sprint }}</td>
             <td>{{ result.fastest_lap|yesno:"Yes,No" }}</td>
             <td>{{ result.race_time|time:"H:i:s" }}</td> <!-- assuming race_time is a TimeField -->
             <td>{{ result.points_race }}</td>
+            <td>
+                <!-- Форма для удаления результата -->
+                <form action="{% url 'delete_result' result.id %}" method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <input type="hidden" name="result_id" value="{{ result.id }}">
+                    <button type="submit" onclick="return confirm('Вы уверены, что хотите удалить этот результат?');">Удалить</button>
+                </form>
+                <!-- Ссылка для редактирования результата -->
+                <a href="{% url 'edit_result' result.id %}">Редактировать</a>
+            </td>
         </tr>
         {% endfor %}
     </tbody>

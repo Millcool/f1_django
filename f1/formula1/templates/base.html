@@ -11,12 +11,13 @@
         <h1>Formula 1</h1>
         <nav>
             <ul>
-                <img src="static/images/Formula_1.png" alt="Race Banner" style="width: 60px; height: 60px">
+                <img src="/static/images/Formula_1.png" alt="Race Banner" style="width: 50px; height: 50px">
                 <li><a href="{% url 'login' %}">Вход</a></li>
                 <li><a href="{% url 'signup' %}">Регистрация</a></li>
                 <li><a href="{% url 'grand_prix_results' %}">Результаты гонок</a></li>
                 <li><a href="{% url 'drivers_info' %}">Информация о гонщиках</a></li>
                 <li><a href="{% url 'teams_info' %}">Информация о командах</a></li>
+                <li><a href="{% url 'tracks_info' %}">Информация о треках</a></li>
             </ul>
         </nav>
     </header>
